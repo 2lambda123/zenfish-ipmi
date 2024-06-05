@@ -255,7 +255,7 @@ def run(tool, args):
       print("executing %s" % (command_string))
 
    # unepipe = subprocess.Popen(command_string, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=i_timeout);
-   unepipe = subprocess.Popen(command_string, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE);
+   unepipe = subprocess.Popen(command_string, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE);
 
    out = unepipe.stdout.read()
    err = unepipe.stderr.read()
