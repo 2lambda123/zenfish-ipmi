@@ -60,6 +60,7 @@ import string
 import struct
 import subprocess
 import sys
+from security import safe_command
 
 #
 # A tiny scrap o sanity... is anything there?
@@ -255,7 +256,7 @@ def run(tool, args):
       print("executing %s" % (command_string))
 
    # unepipe = subprocess.Popen(command_string, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=i_timeout);
-   unepipe = subprocess.Popen(command_string, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE);
+   unepipe = safe_command.run(subprocess.Popen, command_string, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE);
 
    out = unepipe.stdout.read()
    err = unepipe.stderr.read()
